@@ -43,7 +43,7 @@ const handleRequest = async request => {
 const bannero = async () => {
   let remote = await fetch('https://raw.githubusercontent.com/spencerwooo/bannero/master/src/bannero.txt', {cf: {cacheEverything: true}})
   let text = await remote.text()
-  return text.split('\n').slice(1, -1)
+  return text.split('\n').slice(0, -1)
 }
 ```
 
