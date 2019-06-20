@@ -31,19 +31,19 @@ Only 3 steps:
 
 ```javascript
 addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
+	event.respondWith(handleRequest(event.request))
 })
 
 const handleRequest = async request => {
-  let list = await bannero(request)
-  let choice = crypto.getRandomValues(new Uint16Array(1))[0] % list.length
-  return Response.redirect(list[choice], 302)
+	let list = await bannero(request)
+	let choice = crypto.getRandomValues(new Uint16Array(1))[0] % list.length
+	return Response.redirect(list[choice], 302)
 }
 
 const bannero = async () => {
-  let remote = await fetch('https://raw.githubusercontent.com/spencerwooo/bannero/master/src/bannero.txt', {cf: {cacheEverything: true}})
-  let text = await remote.text()
-  return text.split('\n').slice(0, -1)
+	let remote = await fetch('https://raw.githubusercontent.com/spencerwooo/bannero/master/src/bannero.txt', {cf: {cacheEverything: true}})
+	let text = await remote.text()
+	return text.split('\n').slice(0, -1)
 }
 ```
 
